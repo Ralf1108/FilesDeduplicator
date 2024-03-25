@@ -1,0 +1,59 @@
+
+
+get uudi path of file
+
+
+Get filesystem of file:
+	- df -P Scan0001.jpg
+
+
+Get filesystem of file in mergerfs:
+	- sudo apt-get install attr
+	- getfattr -n user.mergerfs.allpaths Scan0001.jpg
+	
+	
+	
+https://unix.stackexchange.com/questions/180631/how-to-get-uuid-of-filesystem-given-a-path
+findmnt -T Scan0001.jpg
+findmnt -no uuid -T "$path"
+
+
+https://linuxhandbook.com/findmnt-command-guide/
+findmnt -n -o TARGET,UUID -T Scan0001.jpg
+findmnt -n -o TARGET,SOURCE,UUID,FSTYPE
+
+
+Network drive mapings (Windows):
+wmic path win32_mappedlogicaldisk get deviceid, providername
+
+find max directory depth:
+find / -type d | awk -F"/" 'NF > max {max = NF} END {print max}'
+-> 22
+
+find file/folder count:
+tree / | tail -1
+-> 170165 directories, 2510252 files
+
+find count of unique folder parts:
+find / -type d | awk 'BEGIN{RS="/"} {print}' | sort | uniq | wc -l
+-> 26000
+
+
+
+EF:
+Add dynamic columns to EF query:
+
+var parameter = Expression.Parameter(typeof(EntityTable));
+var property = Expression.Property(parameter, "ColumnName");
+//Replace string with type of ColumnName and entity table name.
+var selector = Expression.Lambda<Func<EntityTable, string>>(property, parameter);
+
+//Before using queryable you can include where clause with it. ToList can be avoided if need to build further query.
+var result = queryable.Select(selector).ToList();
+
+
+
+.Lambda #Lambda1<System.Func`2[HierarchieInDatabaseTest.Entities.Folder,System.Boolean]>(HierarchieInDatabaseTest.Entities.Folder $x)
+{
+    ($x.L1).Name == .Constant<HierarchieInDatabaseTest.Helper.FileSystem+<>c__DisplayClass4_0>(HierarchieInDatabaseTest.Helper.FileSystem+<>c__DisplayClass4_0).part
+}
