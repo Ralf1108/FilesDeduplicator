@@ -7,13 +7,14 @@ namespace FilesDeduplicator;
 
 internal class Program
 {
-    static async Task Main(string[] args)
+    static async Task Main3(string[] args)
     {
         //var path = new FolderPath(@"D:\Projects\FilesDeduplicator\TestFiles\Images");
         var path = new FolderPath(@"Z:\Android\media\com.whatsapp\WhatsApp\Media\WhatsApp Images");
 
         var engine = new Engine();
-        engine.AddPlugin(new HashDuplicatePlugin());
+        //engine.AddPlugin(new HashDuplicatePlugin());
+        engine.AddPlugin(new OpenCVDuplicatePlugin());
         await engine.Start();
 
         engine.AddFolder(path, FolderType.Input);

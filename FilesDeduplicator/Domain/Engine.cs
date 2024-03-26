@@ -1,5 +1,4 @@
 ﻿using System.Collections.Concurrent;
-using System.Formats.Asn1;
 using FilesDeduplicator.Domain.Entities;
 using FilesDeduplicator.Domain.Persistence;
 using FilesDeduplicator.Domain.Plugins;

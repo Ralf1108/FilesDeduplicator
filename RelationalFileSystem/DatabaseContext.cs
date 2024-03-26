@@ -2,7 +2,6 @@ using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using RelationalFileSystem.Entities;
-using RelationalFileSystem.Extensions;
 using File = RelationalFileSystem.Entities.File;
 
 namespace RelationalFileSystem;

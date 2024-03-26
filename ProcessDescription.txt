@@ -1,0 +1,46 @@
+
+
+UserProcess
+	1. Select ScanFolders (contains all duplicates)
+	2. Select KeepFolders (contains the files too keep, e.g. reference or already cleaned up folders. In these folders files are never deleted!)
+	3. Select DuplicateCheckPlugins (provide 1 plugin instance per configuration, e.g. hash algorithm or tolerance threshold
+		- Sha1-Hash (for exact match)
+		- OpenCV for images (jpg, png)
+		- other...
+	3. Scan
+	
+Plugin types
+	A - Create duplicate value for each file separately -> e.g. hash. Then make quick comparison -> efficient for many files
+	B - Create duplicate value for file pair -> e.g. OpenCV. Slow but used for feature detection in scaled/transformed media
+
+	
+Technical process
+	1. scan all files in all ScanFolders -> create relational file system structure
+	2. for each plugin
+		- Plugin A
+			- run for each file
+			- store duplicate value for file/plugin
+			- when finished/after batch -> make quick compare for duplicates 
+		
+		- Plugin B
+			- run for each file pair
+			- store duplicate value for file pair/plugin
+			- when finished/after batch -> make quick compare for duplicates 
+			
+			
+			
+Plugins
+	- Fast image comparison
+		- https://www.codeproject.com/Articles/374386/Simple-image-comparison-in-NET?msg=5704235#xx5704235xx
+		- nuget: https://www.nuget.org/packages/ImageComparison/
+		- Overview: https://datascience.stackexchange.com/questions/48642/how-to-measure-the-similarity-between-two-images
+	- SSMI index comparison
+		- https://docs.opencv.org/3.4/d5/dc4/tutorial_video_input_psnr_ssim.html
+		
+		
+Hints
+	- Use FolderParts to support unlimited folder nesting
+	- Use FileMetaData to support per plugin file metadata
+	- If FileId is monotonic increasing (or use extra field, e.g. monotonic index):
+		-> store info which file pair were already done by storing last compared file id.
+		-> every change on the file content or metadata will change the file id and set a new larger file id
