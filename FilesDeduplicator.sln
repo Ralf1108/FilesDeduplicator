@@ -5,9 +5,13 @@ VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilesDeduplicator", "FilesDeduplicator\FilesDeduplicator.csproj", "{169CA1CF-1B95-4CA3-B048-26CA3EDAE248}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelationalFileSystem", "RelationalFileSystem\RelationalFileSystem.csproj", "{1177A28B-E2BA-4182-93AE-EE30DE7FFF55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RelationalFileSystem", "RelationalFileSystem\RelationalFileSystem.csproj", "{1177A28B-E2BA-4182-93AE-EE30DE7FFF55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelationalFileSystem.UnitTests", "RelationalFileSystem.UnitTests\RelationalFileSystem.UnitTests.csproj", "{A48BAC59-998E-48E6-877B-1AEBE70DAF57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RelationalFileSystem.UnitTests", "RelationalFileSystem.UnitTests\RelationalFileSystem.UnitTests.csproj", "{A48BAC59-998E-48E6-877B-1AEBE70DAF57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelationalFileSystem2", "RelationalFileSystem2\RelationalFileSystem2.csproj", "{9FCD5A15-3E88-44B7-9CCA-CA98D6890F23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelationalFileSystem2.UnitTests", "RelationalFileSystem2.UnitTests\RelationalFileSystem2.UnitTests.csproj", "{E9E7C25D-9C4E-4EA0-A702-8C07CD9EEDA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{A48BAC59-998E-48E6-877B-1AEBE70DAF57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A48BAC59-998E-48E6-877B-1AEBE70DAF57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A48BAC59-998E-48E6-877B-1AEBE70DAF57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FCD5A15-3E88-44B7-9CCA-CA98D6890F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FCD5A15-3E88-44B7-9CCA-CA98D6890F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FCD5A15-3E88-44B7-9CCA-CA98D6890F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FCD5A15-3E88-44B7-9CCA-CA98D6890F23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9E7C25D-9C4E-4EA0-A702-8C07CD9EEDA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9E7C25D-9C4E-4EA0-A702-8C07CD9EEDA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9E7C25D-9C4E-4EA0-A702-8C07CD9EEDA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9E7C25D-9C4E-4EA0-A702-8C07CD9EEDA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

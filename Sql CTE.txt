@@ -1,0 +1,48 @@
+
+For loading folders recursively
+
+https://sqlfiddle.com/sql-server/online-compiler?&id=fd5f5d63-a7bf-4c77-bc98-b02b2ac12087
+
+
+
+DECLARE @StartFolderId AS int = 7;
+
+;WITH Folders
+AS
+(
+	SELECT *
+	FROM 
+	(VALUES
+	(1, NULL, "X1_2"), 
+	(2, 1, "X2_1"), 
+	(3, 2, "X3_2"), 
+    (7, 2, "X7_2"),
+	(4, 3, "X4_3"), 
+	(5, 4, "X5_4"),
+    (6, 5, "X6_5"))
+  
+  		A(Id, ParentId, Name)
+)
+,
+
+FolderHierarchy AS (
+  SELECT
+    Id,
+    Name,
+    ParentId,
+    1 AS Level
+  FROM Folders
+  WHERE Id = @StartFolderId
+  
+  UNION ALL
+  
+  SELECT
+    e.Id,
+    e.Name,
+    e.ParentId,
+    Level + 1
+  FROM Folders e
+  INNER JOIN FolderHierarchy r ON e.Id = r.ParentId
+) 
+SELECT Id,ParentId,Name, Level
+FROM FolderHierarchy;
